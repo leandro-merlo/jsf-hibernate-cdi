@@ -3,6 +3,7 @@ package br.com.leandro.repository;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -17,6 +18,7 @@ public class Pessoas implements Serializable {
 
 	private EntityManager entityManager;
 
+	@Inject
 	public Pessoas(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}

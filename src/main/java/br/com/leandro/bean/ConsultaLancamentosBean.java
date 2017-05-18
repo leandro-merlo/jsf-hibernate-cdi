@@ -3,19 +3,17 @@ package br.com.leandro.bean;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+
+import org.omnifaces.cdi.ViewScoped;
 
 import br.com.leandro.model.Lancamento;
 import br.com.leandro.repository.Lancamentos;
 import br.com.leandro.util.JPAUtil;
 
-@SuppressWarnings("deprecation")
-@ViewScoped
 @Named
-@ManagedBean()
+@ViewScoped
 public class ConsultaLancamentosBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;

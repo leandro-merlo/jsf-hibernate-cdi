@@ -2,10 +2,10 @@
     <wb-module deploy-name="jsf-hibernate-primefaces-1.0.0-SNAPSHOT">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
-        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <property name="java-output-path" value="/jsf-hibernate-primefaces/target/classes"/>
-        <property name="context-root" value="financeiro"/>
+        <property name="context-root" value="jsf-hibernate-primefaces"/>
     </wb-module>
 </project-modules>
