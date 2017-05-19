@@ -1,9 +1,15 @@
 package br.com.leandro.bean;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name="ola")public class OlaBean {
+@ManagedBean(name="ola")public class OlaBean implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1801784691180578683L;
 	private String nome;
 	private String sobrenome;
 	private String nomeCompleto;
