@@ -15,6 +15,7 @@ import org.omnifaces.cdi.ViewScoped;
 import br.com.leandro.model.Lancamento;
 import br.com.leandro.model.Pessoa;
 import br.com.leandro.model.TipoLancamento;
+import br.com.leandro.repository.Lancamentos;
 import br.com.leandro.repository.Pessoas;
 import br.com.leandro.service.CadastroLancamentos;
 import br.com.leandro.service.NegocioException;
@@ -28,6 +29,8 @@ public class CadastroLancamentoBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -1451339560895814199L;
 
+	@Inject
+	private Lancamentos lancamentos;
 	private Lancamento lancamento = new Lancamento();
 	private List<Pessoa> todasPessoas;
 	
@@ -81,5 +84,10 @@ public class CadastroLancamentoBean implements Serializable {
 		System.out.println("Novo valor: " + event.getNewValue());
 		FacesContext.getCurrentInstance().renderResponse();
 	}
+	
+	public List<String> pesquisarDescricoes(String descricao) {
+		return this.lancamentos.descricoesQueContem(descricao);
+	}
+	
 
 }
