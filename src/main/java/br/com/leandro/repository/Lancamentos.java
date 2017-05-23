@@ -42,12 +42,24 @@ public class Lancamentos implements Serializable{
 		CriteriaBuilder builder = em.getCriteriaBuilder();
 		CriteriaQuery<Tuple> criteria = builder.createTupleQuery();
 		Root<Lancamento> root = criteria.from(Lancamento.class);
-		criteria.select(root.get("descricao"));
-		criteria.where(builder.like(builder.lower(root.get("descricao")), descricao.toLowerCase()));
+		criteria.multiselect(root.get("descricao"));
+		criteria.where(builder.like(builder.lower(root.get("descricao")), "%" + descricao.toLowerCase() + "%"));
 		List<Tuple> tup = em.createQuery(criteria).getResultList();
 		for (Tuple tuple : tup) {
 			ret.add((String) tuple.get(0));
 		}
 		return ret;
+	}
+	
+	public Lancamento porId(Long id){
+		return this.em.find(Lancamento.class, id);
+	}
+	
+	public void guardar(Lancamento lancamento){
+		this.em.merge(lancamento);
+	}
+	
+	public void remover(Lancamento lancamento){
+		this.em.remove(lancamento);
 	}
 }

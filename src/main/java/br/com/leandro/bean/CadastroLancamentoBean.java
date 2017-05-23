@@ -36,12 +36,15 @@ public class CadastroLancamentoBean implements Serializable {
 	
 	@Inject
 	private CadastroLancamentos cadastro;
-
+	
 	@Inject
 	private Pessoas pessoas;
 	
 	public void preparaCadastro() {
 		this.todasPessoas = pessoas.todas();
+		if (this.lancamento == null) {
+			this.lancamento = new Lancamento();
+		}
 	}
 
 	public void salvar() {
@@ -56,7 +59,7 @@ public class CadastroLancamentoBean implements Serializable {
 			ctx.addMessage(null, msg);
 		}
 	}
-
+	
 	public List<Pessoa> getTodasPessoas() {
 		return todasPessoas;
 	}

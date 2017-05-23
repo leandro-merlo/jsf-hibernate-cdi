@@ -24,7 +24,16 @@ public class CadastroLancamentos implements Serializable {
 		if (lancamento.getDataPagamento() != null && lancamento.getDataPagamento().after(new Date())){
 			throw new NegocioException("A data de pagamento não pod e ser uma data futura.");
 		}
-		this.lancamentos.adicionar(lancamento);
+		this.lancamentos.guardar(lancamento);
+	}
+	
+	@Transactional
+	public void excluir(Lancamento lancamento) throws NegocioException {
+		lancamento = this.lancamentos.porId(lancamento.getId());
+		if (lancamento.getDataPagamento() != null){
+			throw new NegocioException("Não é possível excluir um lançamento pago!");
+		}
+		this.lancamentos.remover(lancamento);
 	}
 	
 	
