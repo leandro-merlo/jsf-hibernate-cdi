@@ -17,17 +17,17 @@ header {
 	position: relatinve;
 }
 
-header > img {
-	height: 100%;	
+header>img {
+	height: 100%;
 }
 
-header > span {
+header>span {
 	display: inline;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    font-size: 24px;
-    margin: 6px;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	font-size: 24px;
+	margin: 6px;
 }
 
 #conteudo {
@@ -55,4 +55,19 @@ h1 {
 	right: 10px;
 	width: 35px;
 	height: 35px
+}
+
+#login-dialog {
+	width: 260px;
+	margin: auto;
+	margin-top: 150px;
+}
+
+.grid-login {
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-top: 8px;
+	padding: 10px;
+	width: 100%
 }

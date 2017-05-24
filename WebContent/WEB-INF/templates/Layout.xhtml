@@ -12,24 +12,29 @@
 <h:body>
 	<header>
 		<h:graphicImage library="img" name="logo.png" />
+		<div style="float: right; margin-right: 20px; margin-top: 8px">
+			Olá #{usuario.nome}!
+		</div>
 	</header>
 	<h:form id="menu-form">
 		<p:menubar style="margin-top: -20px; margin-bottom: 20px">
 			<p:submenu label="Cadastros">
 				<p:menuitem value="Pessoa" />
-				<p:menuitem value="Lançamento" action="/CadastroLancamento?faces-redirect=true" />
+				<p:menuitem value="Lançamento"
+					action="/CadastroLancamento?faces-redirect=true" />
 			</p:submenu>
 			<p:submenu label="Consultas">
 				<p:menuitem value="Pessoa" />
-				<p:menuitem value="Lançamento" action="/ConsultaLancamentos?faces-redirect=true" />
+				<p:menuitem value="Lançamento"
+					action="/ConsultaLancamentos?faces-redirect=true" />
 			</p:submenu>
 			<p:submenu label="Sistema">
-				<p:menuitem value="Sair" />
+				<p:menuitem value="Sair" action="#{loginBean.logout}"/>
 			</p:submenu>
 		</p:menubar>
 		<p:ajaxStatus styleClass="ajax-status">
 			<f:facet name="start">
-				<h:graphicImage library="img" name="loading.gif" width="35"/>
+				<h:graphicImage library="img" name="loading.gif" width="35" />
 			</f:facet>
 			<f:facet name="complete">
 				<h:outputText value="" />
@@ -39,8 +44,6 @@
 	<div id="conteudo">
 		<ui:insert name="corpo" />
 	</div>
-	<footer>
-		Sistema Financeiro Ninja - 2017
-	</footer>
+	<footer> Sistema Financeiro Ninja - 2017 </footer>
 </h:body>
 </html>
