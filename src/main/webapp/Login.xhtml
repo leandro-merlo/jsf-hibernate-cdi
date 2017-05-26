@@ -9,7 +9,7 @@
 <h:body>
 	<div id="login-dialog">
 		<h1>Login</h1>
-		<h:form id="frm">
+		<h:form prependId="false">
 			<p:messages autoUpdate="true" />
 			<h:panelGrid columns="2" styleClass="grid-login">
 				<p:outputLabel value="Usuário" for="usuario" />
@@ -17,7 +17,7 @@
 				<p:outputLabel value="Senha" for="senha" />
 				<p:password id="senha" size="20" value="#{loginBean.senha}" />
 				<p:outputLabel />
-				<p:commandButton value="Acessar" action="#{loginBean.login}" />
+ 				<p:commandButton value="Acessar" action="#{loginBean.login}" />
 			</h:panelGrid>
 		</h:form>
 	</div>
