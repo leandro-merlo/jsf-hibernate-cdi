@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.leandro.bean.Usuario;
 
-@WebFilter(urlPatterns = {"*.xhtml"})
+//@WebFilter(urlPatterns = {"*.xhtml"})
 public class AutorizacaoFilter implements Filter, Serializable {
 
 	/**

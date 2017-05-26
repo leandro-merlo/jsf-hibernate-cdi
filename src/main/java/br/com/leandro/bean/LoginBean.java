@@ -1,11 +1,11 @@
 package br.com.leandro.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -16,6 +16,7 @@ import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.omnifaces.cdi.ViewScoped;
 
 @Named
 @ViewScoped
@@ -36,12 +37,11 @@ public class LoginBean implements Serializable {
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(nomeUsuario, senha);
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		
 		try { 
 			subject.login(token);	
 			this.usuario.setNome(nomeUsuario);
 			this.usuario.setDataLogin(new Date());
-			return "/ConsultaLancamentos?faces-redirect=true";
+			return "ConsultaLancamentos?faces-redirect=true";
 		} catch (UnknownAccountException ex) {
 			FacesMessage mensagem = new FacesMessage("A conta informada não existe!");
 			mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
@@ -63,11 +63,11 @@ public class LoginBean implements Serializable {
         }
 		return null;
 	}
-
+	
 	public String logout() {
-//		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		SecurityUtils.getSubject().logout();
-		return "/Login?faces-redirect=true";
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "Login?faces-redirect=true";
 	}
 
 	public String getNomeUsuario() {
