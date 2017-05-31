@@ -10,7 +10,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<hibernate.version>5.2.9.Final</hibernate.version>
-		<mysql-connector.version>5.1.41</mysql-connector.version>
+		<mysql-connector.version>6.0.6</mysql-connector.version>
 		<javax-faces.version>2.3.0</javax-faces.version>
 		<hibernate-validation.version>5.4.1.Final</hibernate-validation.version>
 		<javaee.version>7.0</javaee.version>
@@ -152,7 +152,15 @@
 		    <artifactId>shiro-web</artifactId>
 		    <version>1.4.0</version>
 		    <scope>compile</scope>		    
-		</dependency>				
+		</dependency>			
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro.tools/shiro-tools-hasher -->
+		<dependency>
+		    <groupId>org.apache.shiro.tools</groupId>
+		    <artifactId>shiro-tools-hasher</artifactId>
+		    <version>1.4.0</version>
+		</dependency>
+			
 		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
 		    <groupId>commons-logging</groupId>
